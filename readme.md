@@ -20,4 +20,5 @@
 7. Path /registerGuest runs the tool which supports "Guest" input, Watson analysis and saving everything in MongoDB.
     The /dinnerGuest path renders the guest page with some more crunching in the personality module.
 
+example:http://events.havas.com/dinnerGuest/Sami_Viitamaki_4qdo7h0em
 ---------
