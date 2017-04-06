@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>{{name}} | Havas Cognitive</title>
+
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/> <!-- ie fix -->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" name="viewport"/>
+	<!-- App Styles -->
+<!--	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald|Roboto">-->
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<script type="text/javascript" src="/js/bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- Json User Data Provided Inline -->
+	<script type="text/javascript">
+		var servedData = {{{json}}} ;
+
+	$(document).ready(function() {
+			navigator.sayswho= (function(){
+	    var ua= navigator.userAgent, tem,
+	    M= ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+	    if(/trident/i.test(M[1])){
+	        tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
+	        return 'IE '+(tem[1] || '');
+	    }
+	    if(M[1]=== 'Chrome'){
+	        tem= ua.match(/\b(OPR|Edge)\/(\d+)/);
+	        if(tem!= null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
+	    }
+	    M= M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+	    if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
+	    return M.join(' ');
+			})();
+
+	console.log(navigator.sayswho);
+
+		var img = new Image();
+		img.onload = function () {
+			var bVersion = navigator.sayswho.split(" ");
+		   //alert("image is loaded");
+			 if (bVersion[0].match(/Firefox/i) && parseInt(bVersion[1]) < 49){
+				 $('#hblock1').fadeTo( "fast", 1 );
+				 $('#hblock2').fadeTo( "fast", 1 );
+				 $('#hblock3').fadeTo( "fast", 1 );
+				 $('#hblock4').fadeTo( "fast", 1 );
+		 	 }
+			 //else{
+				 $(img).appendTo('.dinner-profile-image-cntr');
+				 $(img).addClass('dinner-profile-image-reveal');
+				 $('.header-personality-container').addClass('dinner-profile-image-reveal');
+				 $('#hblock1').addClass('hblock1-ani');
+				 $('#hblock2').addClass('hblock2-ani');
+				 $('#hblock3').addClass('hblock3-ani');
+				 $('#hblock4').addClass('hblock4-ani');
+			 //}
+
+		}
+		img.src = servedData.me.profileImage;
+		console.log("profile image");
+		console.log(servedData.me.profileImage);
+
+	} );
+
+
+	</script>
+
+</head>
+<div id='backbone-app' class='backbone-modules'></div>
+
+<body class="dinner">
+	<script id="header-personality-template" type="text/template">
+
+
+	<div id='scroll-top' class=''></div>
+	<div class='header dinner-hero'>
+		<div class='dinner-main-nav'>
+			<p class='name'>Havas Cognitive Dinner</p>
+		</div>
+		<div class='block site-width'>
+			<div class='pad'>
+				<div class="dinner-profile-image-cntr"></div>
+				<div class="header-personality-container">
+
+				<% _.each( Conscientiousness , function(d,i){ var range = d.value / 20; %>
+			    <div class="bar-wrapper">
+			      <% for (var b = 1; b<6; b++){ %>
+			        <div class="bar">
+			          <% if (range > 0 ){ %>
+			            <span class="Conscientiousness"></span>
+			          <% }else{ %>
+			            <span class="per-block-default-color"></span>
+			          <% } %>
+			        </div>
+			      <% range -= 1;} %>
+			    </div>
+			  <% }) %>
+			  <% _.each( Openness , function(d,i){ var range = d.value / 20; %>
+			    <div class="bar-wrapper">
+			    <% for (var b = 1; b<6; b++){ %>
+			        <div class="bar">
+			          <% if (range > 0 ){ %>
+			            <span  class="Openness"></span>
+			          <% }else{ %>
+			            <span class="per-block-default-color"></span>
+			          <% } %>
+			        </div>
+			      <% range -= 1;} %>
+			  </div>
+			  <% }) %>
+
+			  <% _.each( Agreeableness , function(d,i){ var range = d.value / 20; %>
+			    <div class="bar-wrapper">
+			    <% for (var b = 1; b<6; b++){ %>
+			        <div class="bar">
+			          <% if (range > 0 ){ %>
+			            <span class="Agreeableness"></span>
+			          <% }else{ %>
+			            <span class="per-block-default-color"></span>
+			          <% } %>
+			        </div>
+			      <% range -= 1;} %>
+			    </div>
+			  <% }) %>
+
+			  <% _.each( Extraversion , function(d,i){ var range = d.value / 20; %>
+			    <div class="bar-wrapper">
+			    <% for (var b = 1; b<6; b++){ %>
+			        <div class="bar">
+			          <% if (range > 0 ){ %>
+			            <span class="Extraversion"></span>
+			          <% }else{ %>
+			            <span class="per-block-default-color"></span>
+			          <% } %>
+			        </div>
+			      <% range -= 1;} %>
+			    </div>
+			  <% }) %>
+
+			  <% _.each( EmotionalRange , function(d,i){ var range = d.value / 20; %>
+			    <div class="bar-wrapper">
+			      <% for (var b = 1; b<6; b++){ %>
+			        <div class="bar">
+			          <% if (range > 0 ){ %>
+			            <span class="EmotionalRange"></span>
+			          <% }else{ %>
+			            <span class="per-block-default-color"></span>
+			          <% } %>
+			        </div>
+			      <% range -= 1;} %>
+			    </div>
+			    <% }) %>
+				</div>
+
+				<h1 id="hblock1" class="">
+					Hi, {{name}}
+				</h1>
+					<h2 id="hblock2" class="">WELCOME TO YOUR COGNITIVE ID</h2>
+				<p id="hblock3" class="">
+				The best way to understand Cognitive is to see it in action, and so we’ve taken the liberty of analyzing YOU. We haven’t snooped in your waste bins or bathroom cabinets; instead, we’ve taken a look at your online presence.
+				<br><br>
+				Glance over what we’ve learned, and you’ll begin to see how much better you can understand your existing customers—and reach new ones—by aggregating and analyzing an even more robust set of data points.
+				</p>
+				<a id="hblock4" class='arrow down scrolly' href="#start-anchor">
+					EXPLORE
+				</a>
+			</div>
+		</div>
+
+	</div>
+</script>
+
+	<div class='footer padding-top-3'>
+		<img src="/img/Watson.png" style="max-width:260px; padding-bottom:75px;">
+
+		<a class='scroll-top' href='#scroll-top'>Back to top</a>
+	</div>
+
+
+
+	<!-- Backbone Templates -->
+	<script id="digital-footprint-template" type="text/template">
+		<div class='block site-width'>
+			<a id='start-anchor' class='anchor'></a>
+			<div class='pad' style="margin:0 auto;width:70%;min-height:0px;padding-bottom:110px;">
+
+				<p  class="roboto mobile-p" style="color:#e8e8d6;margin:0 auto;width:50%;padding-bottom:70px;">For the sake of this demo, we’ve compared your social presence on LinkedIn and Twitter against the average of all the guests who attended our Havas/NewsCred Cognitive Dinner. </p>
+				<h2 style="color:#fff;padding-bottom:150px;">First, how much do you share?</h2>
+
+				<div class='index-chart pink' >
+					<div class="oswald-bold" style="position:absolute;margin-left: -16px;top: -44px;color:#fff;font-size:18px;left:<%= percentage %>%;">YOU</div>
+					<div class="circle" style='left:<%= percentage %>%;'></div>
+					<div class="oswald-bold" style="position:absolute;line-height: 20px;margin-left: -31px;top: 27px;color:#fff;font-size:18px;left:<%= groupPercentage %>%;">GROUP<br />AVERAGE</div>
+					<div class="group-circle" style='left:<%= groupPercentage %>%;'></div>
+					<p class='oswald label left' style="color:#e8e8d6;margin-top:-100px;">Shares a little</p>
+					<p class='oswald label right' style="color:#e8e8d6;margin-top:-100px;" >Shares a lot</p>
+				</div>
+
+			</div>
+
+		</div>
+	</script>
+
+	<script id="static1-template" type="text/template">
+		<div class='block site-width' style="background:#e8e8d6;padding-top:90px;">
+			<div style="position:absolute;top:0;width:100%;height:18px;background-image:url(/img/rainbow-divider.svg);background-size:cover;background-position:center 0px;background-repeat:no-repeat;"></div>
+			<div class='pad' style="margin:0 auto;width:70%;min-height:0px;padding-bottom:40px;">
+				<!--<img style="display:inline-block;padding-bottom:35px;" src="/img/info-icon.png"/>-->
+				<h2 style="color:#3d475e;padding-bottom:35px;">Shine a Light on Dark Data</h2>
+				<p  class="oswald-bold mobile-p" style="line-height:22px;font-size:18px;color:#3d475e;margin:0 auto;width:60%;padding-bottom:70px;">Before Cognitive, these sorts of insights fell into what is known as “dark data.” Social media posts&mdash;together with video, images, reviews, and many other types of online interaction&mdash;fell within the 80% of the world’s data that is inaccessible to traditional software analysis.</p>
+				<p class="roboto mobile-p" style="font-size:14px;color:#3d475e;padding-bottom:60px;">Thanks to Cognitive, we can now shine a bright light on such data, illuminating insights that used to be out of reach. We can then use those insights to craft more personalized, relevant, and meaningful experiences for individual customers. You’ll optimize marketing spend and be able to identify those individuals most likely to share and talk about your content&mdash;and your brand.</p>
+			</div>
+		</div>
+	</script>
+
+
+	<script id="focus-template" type="text/template">
+		<div class='block site-width'>
+			<div class='pad'>
+				<div class='tabs'>
+
+			    	<h2 style="color:#fff;width:32%;margin:0 auto;line-height:50px;">Next, let’s see what you talk about most.</h2>
+			    	<br/><br/>
+						<div >
+							<div class='col'>
+								<p class='oswald-bold' style="color:#e8e8d6;font-size:28px;">Topics mentioned most by you:</p>
+								<div id='you-content' class='ui-flex'>
+								<% _.each( your.list , function(d,i){ %>
+									<div><span class="oswald-bold"><%= d.text %></span></div>
+								<% }) %>
+							</div>
+						</div>
+
+							<div class='col'>
+					    	<p  class="oswald-bold" style="color:#e8e8d6;font-size:28px;">Topics mentioned most by the group:</p>
+								<div id='group-content' class='ui-flex'>
+									<% _.each( group.list , function(d,i){ %>
+										<div><span class="oswald-bold"><%= d %></span></div>
+									<% }) %>
+								</div>
+							</div>
+			    </div>
+
+				</div>
+
+			</div>
+		</div>
+	</script>
+
+	<script id="static2-template" type="text/template">
+		<div class='block site-width' style="background:#e8e8d6;padding-top:90px;">
+			<div style="position:absolute;top:0;width:100%;height:18px;background-image:url(/img/rainbow-divider.svg);background-size:cover;background-position:center 0px;background-repeat:no-repeat;"></div>
+			<div class='pad' style="margin:0 auto;width:70%;min-height:0px;padding-bottom:40px;">
+				<!--<img style="display:inline-block;padding-bottom:35px;" src="/img/info-icon.png"/>-->
+				<h2 style="color:#3d475e;padding-bottom:35px;">Get to Know Your Audience</h2>
+
+				<p  class="oswald-bold mobile-p" style="line-height:22px;font-size:18px;color:#3d475e;margin:0 auto;width:60%;padding-bottom:70px;">When you know what people are talking about, you know what matters to them. This goes beyond social listening. Insights from Cognitive allow you to segment (and target) your audience based on shared attributes, interests, behaviors, and/or other characteristics, giving you a more complete, multidimensional view of who your audience is.</p>
+				<p class="roboto mobile-p" style="font-size:14px;color:#3d475e;padding-bottom:60px;">These new insights will allow you to take engagement and targeting to the next level, identifying unmet customer needs, delivering personalized content and one-to-one service, and thereby improving efficiency. </p>
+			</div>
+		</div>
+	</script>
+
+
+	<script id="personality-template" type="text/template">
+		<div class='block site-width'>
+			<div class='pad'>
+	    		<h2>By looking at everything you say, Cognitive can build a remarkably accurate view of your personality:</h2>
+				<br/>
+
+				<br/>
+				<% _.each( Conscientiousness , function(d,i){ var range = d.value / 20; %>
+					<div class="bar-wrapper">
+						<h3 class="oswald-bold">Conscientiousness</h3>
+						<% for (var b = 1; b<6; b++){ %>
+							<div class="bar">
+								<% if (range > 0 ){ %>
+									<span class="Conscientiousness"></span>
+								<% }else{ %>
+									<span class="per-block-default-color"></span>
+								<% } %>
+							</div>
+						<% range -= 1;} %>
+						<div class="bar" style="position: relative;background: #374d8f;border-bottom: 1px solid transparent;border-right: 1px solid transparent;"><a href="#" class="per-open info-block" style="position: absolute; right: 50%; width: 16.66%; top: 50%; height: 100%; margin-top: -63px; margin-right: -10px;"></a></div>
+					</div>
+					<div id="Conscientiousness-children" class="per-info-block"><p>Hidden stuff</p></div>
+				<% }) %>
+				<% _.each( Openness , function(d,i){ var range = d.value / 20; %>
+					<div class="bar-wrapper">
+						<h3 class="oswald-bold">Openness</h3>
+					<% for (var b = 1; b<6; b++){ %>
+							<div class="bar">
+								<% if (range > 0 ){ %>
+									<span  class="Openness"></span>
+								<% }else{ %>
+									<span class="per-block-default-color"></span>
+								<% } %>
+							</div>
+						<% range -= 1;} %>
+						<div class="bar" style="position: relative;background: #374d8f;border-bottom: 1px solid transparent;border-right: 1px solid transparent;"><a href="#" class="per-open info-block" style="position: absolute; right: 50%; width: 16.66%; top: 50%; height: 100%; margin-top: -63px; margin-right: -10px;"></a></div>
+				</div>
+					<div id="Openness-children" class="per-info-block"><p>Hidden stuff</p></div>
+				<% }) %>
+
+				<% _.each( Agreeableness , function(d,i){ var range = d.value / 20; %>
+					<div class="bar-wrapper">
+						<h3 class="oswald-bold">Agreeableness</h3>
+					<% for (var b = 1; b<6; b++){ %>
+							<div class="bar">
+								<% if (range > 0 ){ %>
+									<span class="Agreeableness"></span>
+								<% }else{ %>
+									<span class="per-block-default-color"></span>
+								<% } %>
+							</div>
+						<% range -= 1;} %>
+						<div class="bar" style="position: relative;background: #374d8f;border-bottom: 1px solid transparent;border-right: 1px solid transparent;"><a href="#" class="per-open info-block" style="position: absolute; right: 50%; width: 16.66%; top: 50%; height: 100%; margin-top: -63px; margin-right: -10px;"></a></div>
+					</div>
+					<div id="Agreeableness-children" class="per-info-block"><p>Hidden stuff</p></div>
+				<% }) %>
+
+				<% _.each( Extraversion , function(d,i){ var range = d.value / 20; %>
+					<div class="bar-wrapper">
+						<h3 class="oswald-bold">Introversion</h3>
+					<% for (var b = 1; b<6; b++){ %>
+							<div class="bar">
+								<% if (range > 0 ){ %>
+									<span class="Extraversion"></span>
+								<% }else{ %>
+									<span class="per-block-default-color"></span>
+								<% } %>
+							</div>
+						<% range -= 1;} %>
+						<div class="bar" style="position: relative;background: #374d8f;border-bottom: 1px solid transparent;border-right: 1px solid transparent;"><a href="#" class="per-open info-block" style="position: absolute; right: 50%; width: 16.66%; top: 50%; height: 100%; margin-top: -63px; margin-right: -10px;"></a></div>
+					</div>
+					<div id="Extraversion-children" class="per-info-block"><p>Hidden stuff</p></div>
+				<% }) %>
+
+				<% _.each( EmotionalRange , function(d,i){ var range = d.value / 20; %>
+					<div class="bar-wrapper">
+						<h3 class="oswald-bold">Sensitivity</h3>
+						<% for (var b = 1; b<6; b++){ %>
+					    <div class="bar">
+								<% if (range > 0 ){ %>
+									<span class="EmotionalRange"></span>
+								<% }else{ %>
+									<span class="per-block-default-color"></span>
+								<% } %>
+					    </div>
+					  <% range -= 1;} %>
+						<div class="bar" style="position: relative;background: #374d8f;border-bottom: 1px solid transparent;border-right: 1px solid transparent;"><a href="#" class="per-open info-block" style="position: absolute; right: 50%; width: 16.66%; top: 50%; height: 100%; margin-top: -63px; margin-right: -10px;"></a></div>
+					</div>
+					<div id="EmotionalRange-children" class="per-info-block"><p>Hidden stuff</p></div>
+				<% }) %>
+
+				</div>
+			</div>
+		</div>
+	</script>
+
+
+	<script id="static3-template" type="text/template">
+		<div class='block site-width' style="background:#e8e8d6;padding-top:90px;">
+			<div style="position:absolute;top:0;width:100%;height:18px;background-image:url(/img/rainbow-divider.svg);background-size:cover;background-position:center 0px;background-repeat:no-repeat;"></div>
+			<div class='pad' style="margin:0 auto;width:70%;min-height:0px;padding-bottom:40px;">
+				<!--<img style="display:inline-block;padding-bottom:35px;" src="/img/info-icon.png"/>-->
+				<h2 style="color:#3d475e;padding-bottom:35px;">Fine&ndash;Tune Your Delivery</h2>
+				<p  class="oswald-bold mobile-p" style="line-height:22px;font-size:18px;color:#3d475e;margin:0 auto;width:60%;padding-bottom:70px;">TOPIC ANALYSIS CAN HELP YOU IDENTIFY UNMET CUSTOMER NEEDS.</p>
+				<p class="roboto mobile-p" style="font-size:14px;color:#3d475e;padding-bottom:60px;">When you’re talking to friends or acquaintances, you likely (consciously or not) tailor your content and communications style to match their personalities and preferences. You might tend to be more sarcastic with certain friends, for instance, and more low-key with others. And chances are that you’re not going to use the exact same language and mannerisms with an 85-year-old as you would with an 18-year-old. By applying linguistic analytics and personality theory to unstructured text (e.g., social profiles, online posts, personal writing samples), Cognitive can help you make the same sorts of choices on a broader scale. Once you have a clear understanding of the personality of a particular audience,  you can adjust your tone and offering to improve relevance—and response.</p>
+			</div>
+		</div>
+	</script>
+
+	<script id="outro-template" type="text/template">
+		<div class='block site-width'>
+			<a id='outro-anchor' class='anchor'></a>
+			<div class='pad'>
+				<h2> What can Cognitive do for yor company? </h2>
+				<p class="roboto">
+					By mining and making sense of dark data, including the natural language interactions between customers and brands, you can form a far more intimate—and prescient—view of your markets. This means more accurate predictions, more informed recommendations, and richer insights—enabling marketers within your company and agencies to evolve from descriptive and diagnostic analytics to predictive and prescriptive thinking.
+					<br><br>
+					The result: personalized marketing—at scale.
+					<br><br>
+					Let Cognitive help your brands build brilliant experiences customized for each person.
+				</p>
+				<hr/>
+				<h2>Want to know more?</h2>
+				<div class="ui-flex">
+					<a class='a-cta oswald first' target="blank" href="https://www.ibm.com/watson/developercloud/doc/personality-insights/science.shtml">
+						SCIENCE BEHIND<br/>THE PERSONALITY INSIGHTS
+					</a>
+					<a class='a-cta oswald' target="blank" href="https://personality-insights-livedemo.mybluemix.net/">
+						TO LIVE WATSON DEMO
+					</a>
+				</div>
+				<hr/>
+				<h2>Questions?</h2>
+				<div class="ui-flex">
+					<a id='contact-me' class='a-cta oswald' data-sender='/contact_me/<%=name%>/<%=email%>' >
+						CONTACT US
+					</a>
+				</div>
+				<hr/>
+				<h2>Our work</h2>
+
+				<div class="our-work ui-flex">
+					<a class="columns col-12-4 col-medium-12-12 col-small-12-12" href="http://eagleai.us/" target="blank">
+				    <div class="content-inner" style="background:url(/img/eagle.png) center 50% / cover no-repeat; height:100%;margin-right: 10px;position:relative;">
+				      <p class="">EagleAi<span>ITV NEWS</span></p>
+				  	</div>
+					</a>
+					<a class="columns col-12-4 col-medium-12-12 col-small-12-12" href="https://educateme.tdameritrade.com/" target="blank">
+				    <div class="content-inner" style="background:url(/img/alvi.png) center 50% / cover no-repeat; height:100%;margin-right: 10px;position:relative;">
+				      <p class="">Alvi <span>TD Ameritrade</span></p>
+				    </div>
+				  </a>
+					<a class="columns col-12-4 col-medium-12-12 col-small-12-12" href="http://www.theyoungpope-aimen.com/en" target="blank">
+				    <div class="content-inner" style="background:url(/img/young-pope.png) center 50% / cover no-repeat; height:100%;position:relative;">
+				      <p class="">AiMEN <span>The Young Pope &verbar; CANAL&plus;</span></p>
+				    </div>
+				  </a>
+				</div>
+
+			</div>
+		</div>
+	</script>
+
+
+	<script type="text/javascript" src="/js/bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/bower_components/underscore/underscore-min.js"></script>
+	<script type="text/javascript" src="/js/bower_components/backbone/backbone-min.js"></script>
+	<!-- <script type="text/javascript" src="/js/bower_components/slick-carousel/slick/slick.js"></script> -->
+	<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script> <!-- WARN CDN -->
+	<script type="text/javascript" src="/js/d3_helper.js"></script>
+
+	<!-- App + View -->
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/home_view.js"></script>
+
+	<!-- Charts -->
+	<script type="text/javascript" src="/js/chart/plugin/radar_chart.js"></script>
+	<script type="text/javascript" src="/js/chart/comparison_chart.js"></script>
+	<script type="text/javascript" src="/js/chart/donut_chart.js"></script>
+
+	<!-- Components -->
+	<script type="text/javascript" src="/js/component/footprint.js"></script>
+	<script type="text/javascript" src="/js/component/static1.js"></script>
+	<script type="text/javascript" src="/js/component/focus.js"></script>
+	<script type="text/javascript" src="/js/component/personality.js"></script>
+	<script type="text/javascript" src="/js/component/skills_comparison.js"></script>
+	<script type="text/javascript" src="/js/component/outro.js"></script>
+
+	<!-- Start -->
+	<script type="text/javascript">
+		(function(){ new App.View.home(); })();
+	</script>
+
+</body>
+</html>

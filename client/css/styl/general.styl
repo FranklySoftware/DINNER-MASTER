@@ -1,0 +1,120 @@
+$blue = #5ab2e5
+$gray =  #f8f7f7
+$darkGray = #e2e2e2
+$pink = #e60f75
+$purple = #ab5ae5
+
+$mob_width = 767px
+
+@font-face
+	font-family: 'Conv_TradeGothicLTStd';
+	src: url('/fonts/TradeGothicLTStd.eot');
+	src: local('☺'), url('/fonts/TradeGothicLTStd.woff') format('woff'), url('/fonts/TradeGothicLTStd.ttf') format('truetype'), url('/fonts/TradeGothicLTStd.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+@font-face
+	font-family: 'Conv_TradeGothicLTStd-Bold';
+	src: url('/fonts/TradeGothicLTStd-Bold.eot');
+	src: local('☺'), url('/fonts/TradeGothicLTStd-Bold.woff') format('woff'), url('/fonts/TradeGothicLTStd-Bold.ttf') format('truetype'), url('/fonts/TradeGothicLTStd-Bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+@font-face
+	font-family: Oswald-Bold;
+	src: url(/fonts/Oswald-Bold.ttf);
+@font-face
+	font-family: Oswald-Regular;
+	src: url(/fonts/Oswald-Regular.ttf);
+
+@font-face
+	font-family: Roboto-Bold;
+	src: url(/fonts/Roboto-Bold.ttf);
+@font-face
+	font-family: Roboto-Regular;
+	src: url(/fonts/Roboto-Regular.ttf);
+
+*
+	box-sizing border-box
+
+html
+	-ms-touch-take_action manipulation
+	touch-take_action manipulation
+
+body
+	background-color #f6f6f6
+	background-color #FAFBFB
+	background-color #FFF
+	font-family "Oswald-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif
+
+	h1,h2,h3,p,a,label,input,button,strong,li
+		text-align center
+		i
+			font-style italic
+		u
+			text-decoration underline
+
+		@media screen and ( max-width : $mob_width )
+			text-align left
+
+	h1
+		font-size 96px
+		font-weight 700
+		/*font-family "Helvetica Neue", Helvetica, Arial, sans-serif*/
+
+	h2
+		font-size 42px
+		font-weight 700
+		/*font-family "Helvetica Neue", Helvetica, Arial, sans-serif*/
+
+	h3
+		font-size 17px
+		font-weight 500
+		/*font-family "Helvetica Neue", Helvetica, Arial, sans-serif*/
+
+
+	div,p,li
+		font-size 14px
+		/*font-weight 400*/
+		/*font-family "Helvetica Neue", Helvetica, Arial, sans-serif*/
+
+	strong
+
+
+
+		/*font-family "Helvetica Neue", Helvetica, Arial, sans-serif*/
+
+	a,button
+		cursor pointer
+		text-decoration none
+		font-size 14px
+		line-height 23px
+		/*font-weight 400*/
+		/*font-family "Helvetica Neue", Helvetica, Arial, sans-serif*/
+		color #000
+
+
+	label, input
+		font-weight 400
+		cursor pointer
+		/*font-family "Helvetica Neue", Helvetica, Arial, sans-serif*/
+
+	input
+		font-size 15px
+		line-height 16px
+		/*font-family "Helvetica Neue", Helvetica, Arial, sans-serif*/
+
+	label
+		font-size 13px
+		line-height 15px
+		/*font-family "Helvetica Neue", Helvetica, Arial, sans-serif*/
+	svg
+		visibility visible
+		display block
+		margin 0 auto
+		text
+			font-size 15px
+			text-transform capitalize
+			line-height 23px
+			font-weight 500
+			/*font-family "Helvetica Neue", Helvetica, Arial, sans-serif*/

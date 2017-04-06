@@ -1,0 +1,1503 @@
+// css reset
+
+
+@import "styl/reset.styl"
+
+// mixins and general
+@import "styl/mixins.styl"
+@import "styl/general.styl"
+
+.oswald-bold
+	font-family: "Oswald-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif
+.oswald
+	font-family: "Oswald-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif
+	font-weight: 400
+.roboto
+	font-family: "Roboto-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif
+
+@media screen and ( max-width : $mob_width )
+	h1
+		font-size 52px!important
+		text-align center!important
+	h2
+		font-size 28px!important
+		text-align center!important
+	.mobile-p
+		width 100%!important
+	#personality
+		.pad
+			width 100%!important
+		.bar-wrapper > div
+			height	80px
+	.child-view
+		padding 0 15px!important
+
+.dinner .header
+	h1,h2,h3,a,p
+		color: #fff;
+	h1
+		padding-top 60px
+	h1,h2
+		padding-bottom 30px
+	h3
+		padding-bottom 60px
+	p
+		font-family Roboto-Regular
+		max-width 700px
+		margin 0 auto
+		padding-bottom 60px
+	a
+		font-weight 400
+	.header-personality-container
+		display	inline-block
+		width	176px
+		height	auto
+		margin-left 7px
+		border	8px solid #23418f
+		font-size 0
+	.bar-wrapper > div
+		width:20%
+		border-left 1px solid transparent
+		border-right 1px solid transparent
+		border-bottom 1px solid transparent
+		display inline-block
+		float left
+		clear none
+		height 35px
+		position relative
+		span
+			&.per-block-default-color
+				background-color #9b9ac5
+
+
+// Nav ---
+.dinner-main-nav
+	width 100%
+	display block
+	height 70px
+	overflow hidden
+	p,a
+		color: #fff
+		font-family Oswald-Regular!important
+		font-weight 700
+	p
+		float left
+		text-align center
+		line-height 70px
+		padding-left 30px
+		position absolute
+		top 0
+		left 0
+	a.name
+		text-decoration underline
+		padding-right 30px
+		text-align right
+		line-height 70px
+		display block
+		position absolute
+		top 0
+		right 0
+		white-space nowrap
+		overflow hidden
+		max-width 250px
+		width 100%
+
+	a.info
+		border-left 2px solid $gray
+		width 70px
+		height 70px
+		line-height 70px
+		text-align center
+		display block
+		position absolute
+		top 0
+		right 0
+		font-weight bold
+		font-size 19px
+		background-image url(../img/WatsonSmall.jpg)
+		background-size cover
+		background-position center
+
+.dinner-profile-image-cntr
+	margin-right	7px
+	width 192px
+	height auto
+	display inline-block
+	font-size 0
+	border	8px solid #23418f
+
+@media (max-width: $mob_width) {
+	.dinner-profile-image-cntr{
+		margin-right: 0px;
+	}
+	.dinner .header .header-personality-container{
+		margin-left: 0px;
+	}
+}
+
+
+.dinner-profile-image-reveal
+	width: 100%;
+	animation:circle-reveal .2s ease-out
+	-webkit-animation:circle-reveal .2s ease-out
+	-moz-animation:circle-reveal .2s ease-out
+	animation-fill-mode: forwards
+	-webkit-animation-fill-mode: forwards
+	-moz-animation-fill-mode: forwards
+
+@keyframes circle-reveal
+	  0%
+			transform: scale(0)
+	  95%
+			transform: scale(1.1)
+	  100%
+			transform: scale(1)
+@-webkit-keyframes circle-reveal
+	  0%
+			-webkit-transform: scale(0)
+	  95%
+			-webkit-transform: scale(1.1)
+	  100%
+			-webkit-transform: scale(1)
+@-moz-keyframes circle-reveal
+	  0%
+			-moz-transform: scale(0)
+	  95%
+			-moz-transform: scale(1.1)
+	  100%
+			-moz-transform: scale(1)
+
+#hblock1,#hblock2, #hblock3, #hblock4
+	opacity 0
+
+#hblock4:hover
+	background-color #ea536c
+	color	#fff
+
+.hblock1-ani
+	animation:hblock1-reveal .2s linear .2s, hblock1-move .2s linear .2s
+	-webkit-animation:hblock1-reveal .2s linear .2s, hblock1-move .2s linear .2s
+	-moz-animation:hblock1-reveal .2s linear .2s, hblock1-move .2s linear .2s
+	animation-fill-mode: forwards
+	-webkit-animation-fill-mode: forwards
+	-moz-animation-fill-mode: forwards
+
+@-keyframes hblock1-reveal
+  0%
+		opacity 0
+  100%
+		opacity 1
+@-webkit-keyframes hblock1-reveal
+	0%
+		opacity 0
+	100%
+		opacity 1
+@-keyframes hblock1-move
+  0%
+		transform translateY(60px)
+  100%
+		transform translateY(0px)
+@-webkit-keyframes hblock1-move
+	0%
+		transform translateY(60px)
+	100%
+		transform translateY(0px)
+
+.hblock2-ani
+	animation:hblock1-reveal .2s linear .4s, hblock1-move .2s linear .4s
+	-webkit-animation:hblock1-reveal .2s linear .4s, hblock1-move .2s linear .4s
+	-moz-animation:hblock1-reveal .2s linear .4s, hblock1-move .2s linear .4s
+	animation-fill-mode: forwards
+	-webkit-animation-fill-mode: forwards
+	-moz-animation-fill-mode: forwards
+
+.hblock3-ani
+	animation:hblock1-reveal .2s linear .6s, hblock1-move .2s linear .6s
+	-webkit-animation:hblock1-reveal .2s linear .6s, hblock1-move .2s linear .6s
+	-moz-animation:hblock1-reveal .2s linear .6s, hblock1-move .2s linear .6s
+	animation-fill-mode: forwards
+	-webkit-animation-fill-mode: forwards
+	-moz-animation-fill-mode: forwards
+
+.hblock4-ani
+	animation:hblock1-reveal .2s linear .8s, hblock1-move .2s linear .8s
+	-webkit-animation:hblock1-reveal .2s linear .8s, hblock1-move .2s linear .8s
+	-moz-animation:hblock1-reveal .2s linear .8s, hblock1-move .2s linear .8s
+	animation-fill-mode: forwards
+	-webkit-animation-fill-mode: forwards
+	-moz-animation-fill-mode: forwards
+
+#home-view,#focus,#personality
+	background-color #203982
+
+#focus
+	padding-bottom 330px
+	h2
+		@media only screen and (max-width: $mob_width)
+			width 60%!important
+	.col
+		width 50%
+		float left
+		> p
+			padding-bottom 35px
+			text-align	center
+			min-height	90px
+		div
+			text-transform uppercase
+			font-size 18px
+			line-height 50px
+		@media only screen and (max-width: $mob_width)
+			width 100%
+	#you-content
+		text-align center
+		div
+			padding 0 15px
+			margin-bottom 20px
+			text-align center
+			width	100%
+			max-width 50%
+			display	inline-block
+			span
+				display block
+				color #ea536c
+				border 2px solid #ea536c
+	#group-content
+		text-align center
+		div
+			padding 0 15px
+			margin-bottom 20px
+			text-align center
+			width	100%
+			max-width	50%
+			display	inline-block
+			span
+				display	block
+				color #fff
+				border 2px solid #fff
+
+.ui-flex
+	display flex
+	display -webkit-flex
+	-webkit-flex-flow row wrap
+	flex-flow row wrap
+	-webkit-justify-content center
+	justify-content center
+	margin 0 auto
+
+#static2,#static3
+	clear both
+
+#personality
+	h2
+		color	#fff
+		padding-bottom 100px
+	h3
+		font-size 18px
+		color #fff
+		text-transform uppercase
+	padding-bottom 200px
+	.pad
+		width 85%
+		max-width 850px
+		margin 0 auto
+
+.per-block-default-color
+	background-color #3e5ba5
+.Openness
+	background-color #cf6aa9
+.Conscientiousness
+	background-color #ea536c
+.Extraversion
+	background-color #cd5487
+.Agreeableness
+	background-color #de5f8a
+.EmotionalRange
+	background-color #ac4473
+
+.children-view
+	padding-bottom 33px
+	float left
+
+.child-view
+	width 33.3%
+	padding 0 33px
+	float	left
+	clear	none
+	p
+		color #d3d4d9
+		padding 35px 0 16px 8px
+		text-align left
+
+@media only screen and (max-width: 1080px)
+	.child-view
+		width 50%
+	#personality
+		h2
+			padding-bottom 40px
+		padding-bottom 50px
+
+#outro
+	padding-bottom	30px
+	h2
+		color	#fff
+		padding-bottom 70px
+	.pad
+		width 85%
+		max-width 850px
+		margin 0 auto
+		p
+			padding-bottom 70px
+			color #fff
+			width 80%
+			margin 0 auto
+	hr
+		margin-bottom 70px
+	a.a-cta
+		color #3d475e
+		display inline-block
+		background-color #fff
+		padding 15px
+		margin 0 15px
+		text-align center
+		width 270px
+		height 55px
+		margin-bottom 70px
+	a.first
+		padding 5px
+
+.our-work
+	height	250px
+
+.our-work .columns
+	height	250px
+
+.our-work a p
+	font-size: 20px;
+	position: absolute;
+	bottom: -55px;
+	left: 10px;
+	color: #fff;
+	padding-bottom: 5px;
+	display: none;
+	text-align	left
+
+.our-work a p span
+	font-size: 14px;
+	display: block;
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.our-work > a > div:before, .our-work > .columns > a div:before {
+  content " "
+  position absolute
+  width 100%
+  height 100%
+  background-color rgba(68,81,96,0.6);
+	display	none
+	top	0
+	left	0
+}
+
+.our-work > a:hover > div:before, .our-work > .columns > a:hover div:before {
+  display: block;
+}
+
+.our-work a:hover p {
+  display: block;
+}
+
+@media (min-width: $mob_width)
+	.our-work
+		height	250px
+
+
+@media (max-width: 550px) {
+	#contact-me{
+		margin: 0px;
+	}
+}
+
+@media (max-width: $mob_width) {
+	#outro{
+		padding-bottom	0
+	}
+	.our-work{
+		height	auto
+	}
+	.our-work p{
+		display	block!important
+	}
+	.our-work > a > div:before, .our-work > .columns > a div:before{
+		display	block
+	}
+	.our-work	.columns{
+		height 250px
+		padding-bottom	20px
+	}
+	.our-work .content-inner{
+		margin-right	0!important
+	}
+}
+
+#guests
+	td
+		position:relative;
+	a
+		color: darkblue;
+		text-decoration: underline;
+	a:hover
+		color:royalblue;
+
+.guest-delete-button
+	width:30px;
+	height:30px;
+	display: block;
+	background-size: 100% auto;
+	background: url('/images/DeleteRed-24x24.png') center center no-repeat;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -15px;
+	margin-top: -15px;
+
+.form-cnt
+	display:flex;
+	display:-webkit-flex;
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	justify-content: center;
+	-webkit-justify-content: center;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+
+.form-cnt
+	font-size: inherit;
+	.form-width
+		width: 50%;
+	input
+		line-height: 45px;
+		width: 100%;
+		font-size: inherit;
+	input[type="submit"]
+		line-height: 45px;
+		-webkit-appearance: none;
+		-webkit-user-select: none;
+		white-space: pre;
+	textarea
+		width:100%;
+		text-align:center;
+		font-size: inherit;
+		padding-top:10%;
+
+#form-error-msg
+	color: red;
+	display:none;
+	padding: 20px;
+	border: 2px solid red;
+	font-weight: 700;
+	font-size:	17px;
+	background-color: pink;
+
+#loading
+	text-align:center;
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(255,255,255,.846);
+	opacity: 1;
+	transition: opacity 400ms ease;
+	-webkit-transition: opacity 400ms ease;
+	padding-top: 300px;
+
+.modal
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+.modal-content
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%; /* Could be more or less, depending on screen size */
+
+.modal-content form
+	padding-bottom 30px
+
+.modal-content p
+	padding-bottom: 30px;
+
+.modal-close
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+
+.modal-close:hover, .modal-close:focus
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+
+#guest-profile-image-form input[type="submit"], #guest-profile-image-form input[type="file"], #guest-profile-image-delete input[type="submit"]
+	font-size: 20px;
+
+#img-delete-button
+	color red
+
+
+.guest-img-yes
+	color green!important
+
+.guest-img-no
+	color gold!important
+
+.guest-img-none
+	color red!important
+
+
+.bar-wrapper.active + .per-info-block
+	max-height 500px
+
+.bar-wrapper
+	width	100%
+	margin-right	30px
+	position	relative
+	display	inline-block
+	h3
+		position	absolute
+		left	30px
+		top	50%
+		z-index	10
+		margin-top	-9px
+	a
+		position absolute
+		right -101px
+		width 100px
+		top 50%
+		height 100%
+		margin-top -68px
+
+	a.per-open
+		background-image url(/img/arrow-open-personality.png)
+		background-position center
+		background-repeat no-repeat
+	a.active
+		background-image url(/img/arrow-close-personality.png)
+		background-position center
+		background-repeat no-repeat
+
+.per-info-block
+	-webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+	-ms-transition: all 0.6s;
+	-o-transition: all 0.6s;
+	transition: all 0.6s;
+	background-color	#17284e
+	text-align left
+	float left
+	max-height 0
+	overflow	hidden
+
+
+.bar-wrapper > div
+	width:16.66%
+	border-left 1px solid #3d475e
+	border-right 1px solid #3d475e
+	border-bottom 1px solid #3d475e
+	display inline-block
+	float left
+	clear none
+	height 135px
+	position relative
+
+.bar-wrapper-child > div
+	width 10px
+	height 10px
+	display inline-block
+	position relative
+	margin 0 8px
+	span
+		width 100%
+		height 100%
+		position absolute
+
+.bar-wrapper > div span
+	position:absolute;
+	top:0;
+	left:0;
+	background-color:#ccc;
+	width:100%;
+	height:100%;
+	&.per-block-default-color
+		background-color #3e5ba5
+	&.Openness
+		background-color #cf6aa9
+	&.Conscientiousness
+		background-color #ea536c
+	&.Extraversion
+		background-color #cd5487
+	&.Agreeableness
+		background-color #de5f8a
+	&.EmotionalRange
+		background-color #ac4473
+	&.me
+		background-color $pink
+	&.company
+		background-color $blue
+
+.bar_chart
+	position relative
+	p.label
+		text-align left
+		color #000
+		font-weight 500
+		text-transform capitalize
+		display none
+	p.stat
+		position absolute
+		top 0
+		right 0
+		text-align right
+		font-weight 600
+		display none
+	span
+		background-color #FFF
+		width 100%
+		display block
+		height 10px
+		position relative
+		margin 5px 0 10px 0
+		box-shadow 0 4px 8px rgba(0,0,0,0.02)
+		border-radius 30px
+		i
+			width 10px
+			height 100%
+			background-color $blue
+			display block
+			transition-delay 1s
+			transition 1.4s
+			border-radius 30px
+			&.me
+				background-color $pink
+			&.company
+				background-color $blue
+			&.sector
+				background-color $darkGray
+
+
+
+// Layout ---
+.block
+	display block
+	width 100%
+	padding 75px 0 0 0
+	position relative
+	.anchor
+		position absolute
+		top -70px
+		width 10px
+		height 10px
+		display block
+		opacity 0
+	@media screen and ( max-width : $mob_width )
+		padding 50px 0 60px 0
+
+.site-width
+	width 100%
+	display block
+	margin 0 auto
+.pad
+	padding-left 25px
+	padding-right 25px
+	padding-bottom 70px
+	text-align center
+
+
+
+hr.divide
+	border none
+	border-top 10px solid $gray
+
+hr.split
+	border none
+	border-top 3px solid $gray
+	width 100%
+	margin 15px auto 15px auto
+
+hr
+	color #8b96af
+
+
+
+// Sections --
+.hero
+	width 100%
+	display block
+	background-image url('../img/IBM-BusinessConnect2016.jpg')
+	background-size cover
+	background-position center
+	height 330px
+	min-height 200px
+	max-height 600px
+	height calc(100vh - 450px)
+	background-color $gray
+	@media screen and ( max-width : $mob_width )
+		background-image url('../img/IBM-BusinessConnect2016_mob.jpg')
+
+.dinner-hero
+	width 100%
+	display block
+	background-image url('../img/Cognitive-Dinner_web.png')
+	background-size cover
+	background-position center 0px
+	background-repeat	no-repeat
+	min-height 855px
+	background-color $gray
+	@media screen and ( max-width : $mob_width )
+		background-image url('../img/Cognitive-Dinner_web.png')
+
+.header
+	form
+		input
+			padding 10px 20px
+			display block
+			margin 0 auto
+			display block
+	a.down.arrow
+		color #3d475e
+		display inline-block
+		background-color #fff
+		padding 15px
+		margin 0 15px
+		text-align center
+		height 55px
+		width	176px
+
+	ul.notices
+		width 100%
+		display block
+		&:after
+			content ''
+			display table
+			clear both
+		li
+			width 50%
+			float left
+			position relative
+			padding 0 20px
+			h2
+				text-align left
+
+			&:before
+				content ''
+				display block
+				position absolute
+				top 0
+				right 0
+				width 8px
+				height 100%
+				background $pink
+
+			&:last-child
+				border-right none
+				&:before
+					display none
+
+		@media screen and ( max-width : $mob_width )
+			li
+				width 100%
+				margin-bottom 20px
+				&:before
+					right auto
+					left 0
+				&:last-child:before
+					display block
+
+
+
+.footer
+	width 100%
+	display block
+	text-align center
+	img
+		display inline-block
+	a.scroll-top
+		width 100%
+		height 70px
+		line-height 70px
+		text-align center
+		display block
+		background $gray
+		border-top 2px solid $darkGray
+
+
+// Nav ---
+.main-nav
+	position fixed
+	z-index 10
+	top 0
+	left 0
+	width 100%
+	display block
+	border-bottom 2px solid $gray
+	background-color #FFF
+	height 70px
+	box-shadow 0 4px 7px rgba(0,0,0,0.04)
+	overflow hidden
+
+	a.logo
+		width 120px
+		height 70px
+		float left
+		text-align center
+		line-height 70px
+		padding-left 20px
+		position absolute
+		top 0
+		left 0
+	a.name
+		height 70px
+		text-align right
+		line-height 70px
+		display block
+		position absolute
+		top 0
+		right 100px
+		white-space nowrap
+		overflow hidden
+		max-width 250px
+		width 100%
+		@media screen and ( max-width : $mob_width )
+			right 80px
+			text-align center
+			max-width calc(100% - 195px)
+
+	a.info
+		border-left 2px solid $gray
+		width 70px
+		height 70px
+		line-height 70px
+		text-align center
+		display block
+		position absolute
+		top 0
+		right 0
+		font-weight bold
+		font-size 19px
+		background-image url(../img/WatsonSmall.jpg)
+		background-size cover
+		background-position center
+
+div.cols
+	display block
+	width 100%
+	&:after
+		content ''
+		display table
+		clear both
+	.col-1-2
+		width 50%
+		display block
+		float left
+		height auto
+
+.col-content
+	width 50%
+	display block
+	float left
+	padding 10px
+	&.right
+		text-align right
+	&:after
+		content ''
+		display table
+		clear both
+
+
+#personalityBarsx
+	.label
+		color white
+		fill white
+
+// Backbone --
+.backbone-modules
+
+	div.question-block
+		position relative
+		a.icon
+			position absolute
+			top -20px
+			right 15px
+			width 40px
+			height 40px
+			border-radius 50%
+			border none
+			line-height 41px
+			text-align center
+			color white
+			&.blue
+				background-color $blue
+			&.pink
+				background-color $pink
+
+		.hidden
+			margin 10px 0
+			padding 35px 30px
+			border 1px solid #e0e0e0
+			border-radius 10px
+			box-shadow 0 2px 3px rgba(0,0,0,0.1)
+			display none
+		.revealed
+			display block
+
+
+	div.info-block
+		position relative
+		display block
+		height auto
+		&.white p
+			background #FFF
+			box-shadow 0 4px 8px rgba(0,0,0,0.04)
+			&:after,
+			&:before
+				background-color #FFF
+		p
+			padding 30px 25px
+			border-radius 10px
+			background $gray
+			position relative
+			box-shadow 0 2px 3px rgba(0,0,0,0.08)
+			height auto
+			max-height 120px
+			overflow hidden
+			transition all 0.6s
+			&:before
+				content ''
+				background-color $gray
+				opacity 1
+				position absolute
+				bottom 0
+				left 0
+				width 100%
+				height 20px
+				transition all 0.6s
+			&:after
+				content ''
+				background-color $gray
+				opacity 0.7
+				position absolute
+				bottom 0
+				left 0
+				width 100%
+				height 45px
+				transition all 0.6s
+			&.active
+				max-height 1000px
+				&:before,&:after
+					opacity 0
+
+
+		span
+			position absolute
+			bottom -20px
+			right 25px
+			width 40px
+			height 40px
+			border-radius 50%
+			text-align center
+			color white
+			line-height 37px
+			&.blue
+				background-color $blue
+			&.pink
+				background-color $pink
+			&:after
+				content "+"
+				font-weight bold
+			&.active:after
+				content "-"
+
+
+	.tabs
+		.tabs-nav
+			width 100%
+			display block
+			margin-bottom  -10px
+			&:after
+				content ''
+				display table
+				clear both
+			a
+				width 50%
+				display block
+				float left
+				border-bottom 4px solid transparent
+				color $darkGray
+				line-height 45px
+				text-align center
+				font-size 17px
+				font-weight 500
+				white-space nowrap
+				overflow hidden
+			a.blue
+				border-bottom-color $blue
+				color $blue
+			a.pink
+				border-bottom-color $pink
+				color $pink
+			&.blue a.active
+				border-bottom 4px solid $blue
+				color $blue
+			&.pink a.active
+				border-bottom 4px solid $pink
+				color $pink
+
+
+
+		.tab-content
+			display none
+			&.active
+				display block
+
+
+	ul.niche-list
+		width 100%
+		display block
+		text-align center
+		li
+			display inline-block
+			padding 0 7px 0 7px
+			background $blue
+			color #FFF
+			position relative
+			line-height 35px
+			border-radius 5px
+			margin 3px 0
+			font-size 15px
+			box-shadow 0 2px 3px rgba(0,0,0,0.09)
+
+
+			span
+				position absolute
+				top 8px
+				right 18px
+				width 24px
+				height 24px
+				background $blue
+				border-radius 50%
+				line-height 26px
+				font-size 13px
+				font-weight 600
+				text-align center
+				display none
+		@media screen and ( max-width : $mob_width )
+			text-align center
+
+	.quote
+		background $pink
+		color #FFF
+		h1
+			font-weight 300
+
+	.footprint
+		.index-chart
+			margin 30px 0
+			position relative
+			height 9px
+			background-image url(/img/dotted-slider-gradient.png)
+			background-size 100%
+			background-position center 0px
+			background-repeat no-repeat
+			.circle
+				width 20px
+				height 20px
+				background-color #ffffff
+				position absolute
+				margin-left -10px
+				top -5px
+				left 100%
+				overflow hidden
+				line-height 0
+			.group-circle
+				width 20px
+				height 20px
+				background-color #ffffff
+				position absolute
+				margin-left -10px
+				top -5px
+				left 100%
+				overflow hidden
+				line-height 0
+			&.pink .circle
+				border-color $pink
+			&.blue .circle
+				border-color $blue
+			p.label
+				padding-top 15px
+				&.left
+					float left
+					margin-left -3px
+				&.right
+					float right
+					margin-right -3px
+
+		ul.block-chart
+			width 100%
+			display block
+			display none
+			&:after
+				content ''
+				display table
+				clear both
+			li
+				width 10%
+				height auto
+				display block
+				float left
+				background-color $gray
+				border 3px solid #FFF
+				&.found
+					background-color $blue
+				&:after
+					content ''
+					display table
+					padding-top 80%
+
+	.personality
+		background $gray
+
+		ul.personality-key
+			display block
+			margin-top 20px
+			margin-bottom 20px
+			text-align center
+			@media screen and ( max-width : $mob_width )
+				text-align left
+			&:after
+				content ''
+				display table
+				clear both
+			li
+				width auto
+				display inline-block
+				position relative
+				padding 0 15px 0 20px
+				line-height 15px
+				text-align left
+				i
+					width 12px
+					height 12px
+					margin 2px 0
+					background-color #000
+					display block
+					border-radius 50%
+					position absolute
+					top 0
+					left 0
+					background $blue
+				&.pink i
+					background $pink
+				&.purple i
+					background $darkGray
+
+		.personality-chart
+			width 100%
+			height auto
+			display block
+			position relative
+			@media screen and ( max-width : $mob_width )
+				margin-bottom 20px
+			&:after
+				content ''
+				display table
+				padding-top 100%
+			svg
+				position absolute
+				top 0
+				bottom 0
+				left 0
+				right 0
+				width 100%
+				height 100%
+				.radar-chart
+					polygon.area
+						display none
+					g.circle-group
+						circle
+							fill red
+						&.blue circle
+							fill $blue
+						&.pink circle
+							fill $pink
+					g.axis line
+						stroke $darkGray
+						stroke-width 2
+					g.tooltip
+						display none
+
+
+	.skills
+		.comparison-graph
+			position relative
+			max-width 470px
+			margin 0 auto 10px auto
+			&:after
+				content ''
+				display table
+				padding-top 195%
+			svg
+				position absolute
+				top 0
+				bottom 0
+				left 0
+				right 0
+				width 100%
+				height 100%
+
+
+	.focus
+		background $gray
+
+		.label
+			text-align left
+			color #000
+			font-weight 500
+			text-transform capitalize
+			margin 25px 0
+			padding-right 20px
+
+	.outro
+
+		a.outro-link
+			display block
+			text-align left
+			padding 15px
+			color #FFF
+			margin-bottom 10px
+			line-height 20px
+			text-align center
+			border-radius 10px
+			box-shadow 0 2px 3px rgba(0,0,0,0.09)
+			&.blue
+				background-color $blue
+			&.pink
+				background-color $pink
+			&.pending
+				background-color $gray
+				position relative
+				color rgba(0,0,0,0)
+				&:after
+					content ''
+					display block
+					width 30px
+					height 30px
+					position absolute
+					top 10px
+					left 50%
+					margin-left -15px
+					background-image url(../img/loader.gif)
+					background-position center
+					background-size 30px 30px
+					background-repeat no-repeat
+			&.complete
+				background-color #FFF
+				box-shadow none
+				position relative
+				color rgba(0,0,0,1)
+				pointer-events none
+				font-weight bold
+				&:after
+					display none
+
+
+		.slider
+			padding-top 40px
+			.slick-arrow
+				width 40px
+				height 40px
+				display block
+				background-position center
+				background-size cover
+				&:before
+					display none
+				&.slick-prev
+					left -40px
+					background-image url('/img/arrow_left.png')
+				&.slick-next
+					right -40px
+					background-image url('/img/arrow_right.png')
+			ul.slick-dots
+				padding-top 40px
+				width 100%
+				text-align center
+				li
+					display inline-block
+					button:before
+						font-size 10px
+
+			.slide
+				background #FFF
+				width 100%
+				display block
+				border 3px solid $gray
+				border-radius 10px
+				overflow hidden
+				.img
+					width 100%
+					height 150px
+					background red
+					display block
+					background-position center
+					background-size cover
+				.text
+					padding 40px 30px
+					h2
+						text-align left
+						max-width 280px
+					a
+						font-weight 500
+						text-decoration underline
+.red
+	color red
+
+
+
+#guest-form
+	-webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+	-ms-transition: all 0.6s;
+	-o-transition: all 0.6s;
+	transition: all 0.6s;
+	max-height 0
+	overflow	hidden
+
+#guest-form.expand-form
+	max-height 1000px
+
+.img-cnt
+	width 100%
+	overflow	hidden
+	display	block
+
+.img-cnt img
+	width 100%
+
+.content-inner
+	padding 10px;
+
+
+@media (min-width: $mob_width) {
+	.col-12-4.columns{
+		width	33%
+	}
+}
+
+@media (max-width: $mob_width) {
+	.columns.col-small-12-1 {
+		width: 8.33333%;
+	}
+
+	.columns.col-small-12-2 {
+		width: 16.66667%;
+	}
+
+	.columns.col-small-12-3 {
+		width: 25%;
+	}
+
+	.columns.col-small-12-4 {
+		width: 33.33333%;
+	}
+
+	.columns.col-small-12-5 {
+		width: 41.66667%;
+	}
+
+	.columns.col-small-12-6 {
+		width: 50%;
+	}
+
+	.columns.col-small-12-7 {
+		width: 58.33333%;
+	}
+
+	.columns.col-small-12-8 {
+		width: 66.66667%;
+	}
+
+	.columns.col-small-12-9 {
+		width: 75%;
+	}
+
+	.columns.col-small-12-10 {
+		width: 83.33333%;
+	}
+
+	.columns.col-small-12-11 {
+		width: 91.66667%;
+	}
+
+	.columns.col-small-12-12 {
+		width: 100%;
+	}
+
+	.col-hidden-small {
+		display: none !important;
+	}
+
+
+}
+
+
+.padding-top-1 {
+  padding-top: 1em;
+}
+.padding-top-2 {
+  padding-top: 2em;
+}
+.padding-top-3 {
+  padding-top: 3em;
+}
+.padding-top-4 {
+  padding-top: 4em;
+}
+.padding-top-5 {
+  padding-top: 5em;
+}
+.padding-top-7 {
+  padding-top: 7em;
+}
+.padding-bottom-1 {
+  padding-bottom: 1em;
+}
+.padding-bottom-2 {
+  padding-bottom: 2em;
+}
+.padding-bottom-3 {
+  padding-bottom: 3em;
+}
+.padding-bottom-4 {
+  padding-bottom: 4em;
+}
+.padding-bottom-5 {
+  padding-bottom: 5em;
+}
+.padding-bottom-7 {
+  padding-bottom: 7em;
+}

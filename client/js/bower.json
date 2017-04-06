@@ -1,0 +1,25 @@
+{
+  "name": "CognitiveDinner",
+  "authors": [
+    "Frank Krout <frank.krout@havas.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "^1.8.3",
+    "backbone": "^1.3.3",
+    "jquery": "^3.1.0",
+    "d3": "^4.2.3",
+    "slick-carousel": "^1.6.0"
+  }
+}

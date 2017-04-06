@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>{{ page_title }}</title>
+
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/> <!-- ie fix -->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" name="viewport"/>
+	<!-- App Styles -->
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<!-- Json User Data Provided Inline -->
+	<script type="text/javascript"> var servedData = {{{json}}} ; </script>
+
+</head>
+<body>
+
+
+	<div class='main-nav'>
+		<a class='logo'> <img width='125px' height='70px' src="/img/IBM-Logo.png" /> </a>
+		<a class='name'>{{first_name}} {{last_name}}</a>
+		<a class='info scrolly' href='#outro-anchor'></a>
+	</div>
+	<div id='scroll-top' class='hero'></div>
+	<div class='header'>
+		<div class='block site-width'>
+			<div class='pad'>
+				<h1>
+					Hi {{first_name}}, <br/>
+					Welcome to IBM <br/>
+					BusinessConnect!
+				</h1>
+				<br>
+				<h3>
+					We've analysed your online presence with the power of <strong>Watson</strong> to share some insights personal to you.
+					<br><br>
+					<strong>Watson</strong> helps companies tap into new insights, from data that was previously difficult to access. Scroll down to find out what Watson has learned about you and your company...
+				</h3>
+				<br>
+				<a class='arrow down scrolly' href="#start-anchor"></a>
+			</div>
+		</div>
+		<hr class='divide'/>
+	</div>
+	<div id='backbone-app' class='backbone-modules'></div>
+	<div class='footer'>
+		<img src="/img/Watson.png" style="max-width:260px; padding-bottom:75px;">
+
+		<a class='scroll-top' href='#scroll-top'>Back to top</a>
+	</div>
+
+
+
+	<!-- Backbone Templates -->
+	<script id="digital-footprint-template" type="text/template">
+		<div class='block site-width'>
+			<a id='start-anchor' class='anchor'></a>
+			<div class='pad'>
+
+				<h1>Here is what your online presence looks like compared to your company:</h1>
+				<br/><br/>
+
+				<h2>You</h2>
+				<div class='index-chart pink' >
+					<div class="circle" style='left:<%= percentage %>%;'></div>
+					<p class='label left' >Private</p>
+					<p class='label right' >Broadcaster</p>
+				</div>
+				<br/><br/>
+
+				<h2><%= companyName %></h2>
+				<div class='index-chart blue' >
+					<div class="circle blue" style='left:<%= companyPercentage %>%;'></div>
+					<p class='label left' >Private</p>
+					<p class='label right' >Broadcaster</p>
+				</div>
+				<br/><br/>
+
+				<div class='info-block'>
+					<p>
+						This graphic represents you and your company's online activity over key social networks. Gartner reports that companies are struggling to interpret basic transaction and contact data, while a further 80% of the data consumers and business generate is 'dark data' (unstructured posts, comments, reviews and video).
+						<br/><br/>
+						<strong>Watson Alchemy</strong> can scan and interpret dark data, providing the insights required to plan truly personalised experiences and optimise marketing spend across customer touchpoints. For instance, if you know someone is a 'broadcaster' you can expect them to share good/bad experiences across multiple channels.
+					</p>
+					<span class='pink'></span>
+				</div>
+
+			</div>
+		</div>
+	</script>
+
+	<script id="focus-template" type="text/template">
+		<div class='block site-width'>
+			<div class='pad'>
+				<div class='tabs'>
+
+			    	<h1>These are the topics you and your company talk most about online:</h1>
+			    	<br/><br/>
+			    	<div class="tabs-nav">
+				    	<a data-tab="you-content" class='pink active'>You</a>
+				    	<a data-tab="company-content" class="blue active"><%= companyName %></a>
+			    	</div>
+			    	<div class='cols'>
+				    	<div id='you-content' class='col-1-2'>
+							<% _.each( your.list , function(d,i){ %>
+								<p class="label"><%= d.text %></p>
+							<% }) %>
+						</div>
+						<div id='company-content' class='col-1-2'>
+							<% _.each( company.list , function(d,i){ %>
+								<p class="label"><%= d.text %></p>
+							<% }) %>
+						</div>
+					</div>
+					<br/><br/>
+					<div class='info-block white'>
+						<p>
+							Cognitive systems ingest data from multiple sources, building meaning from that data so you can identify new, unmet customer needs early on in order to successfully innovate new products and services.
+							<br/><br/>
+							<strong>Watson Alchemy Language</strong> can analyse unstructured text and help you to understand the sentiment, keywords, entities, and high-level concepts within. This lets you know what's important to your clients as well as the companies they represent.
+						</p>
+						<span class='blue'></span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</script>
+
+	<script id="skills-comparison-template" type="text/template">
+		<div class='quote'>
+			<div class='block site-width' >
+				<div class='pad'>
+			 		<h1>
+			 			<i>We have discovered <%= totalEventSkills %> unique interests from everyone here at BusinessConnect</i>
+			 		</h1>
+			 	</div>
+			</div>
+		</div>
+		<div class='block site-width' >
+			<div class='pad'>
+				<h1>And we found that the following people here today that share the most interests with you:</h1>
+				<br/><br/>
+				<div id="comparison_graph" class='comparison-graph' ></div>
+				<br/>
+				<hr class='split'/>
+				<br/>
+				<h1>
+					While you share many interests with your peers, the following are unique to you:
+				</h1>
+				<br/><br/>
+				<ul class='niche-list'>
+					<% _.each( niche , function(d,i){ %> <li><%= d.skill %><span><%= d.total %></span></li> <% }) %>
+				</ul>
+				<br/><br/>
+				<div class='info-block'>
+					<p>
+						<strong>Watson</strong> can help you segment your audience and find cohorts based on shared attributes and behaviours or unique characteristics. <br/><br/> These new insights allow you to take engagement and targeting to the next level, delivering personalised content and one-to-one service and thereby improving efficiency.
+					</p>
+					<span class='blue'></span>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<script id="personality-template" type="text/template">
+		<div class='block site-width'>
+			<div class='pad'>
+	    		<h1>Here's how your personality compares to your company and your sector</h1>
+				<br/>
+				<ul class='personality-key'>
+					<li class='pink' ><i></i>You</li>
+					<li class='blue' ><i></i>Company</li>
+					<li class='purple' ><i></i>Sector</li>
+				</ul>
+				<br/>
+				<h3>Open to change</h3>
+				<% _.each( Openness , function(d,i){ %>
+					<div class="bar_chart Marketing">
+						<p class="label"><%= d.name %></p>
+						<p class="stat"><%= d.value %>%</p>
+						<span><i class='<%= d.class %>' style="width:<%= d.value %>%;"></i></span>
+					</div>
+				<% }) %>
+				<br/>
+				<h3>Diligent</h3>
+				<% _.each( Conscientiousness , function(d,i){ %>
+					<div class="bar_chart Marketing">
+						<p class="label"><%= d.name %></p>
+						<p class="stat"><%= d.value %>%</p>
+						<span><i class='<%= d.class %>' style="width:<%= d.value %>%;"></i></span>
+					</div>
+				<% }) %>
+				<br/>
+				<h3>Extraverted</h3>
+				<% _.each( Extraversion , function(d,i){ %>
+					<div class="bar_chart Marketing">
+						<p class="label"><%= d.name %></p>
+						<p class="stat"><%= d.value %>%</p>
+						<span><i class='<%= d.class %>' style="width:<%= d.value %>%;"></i></span>
+					</div>
+				<% }) %>
+				<br/>
+				<h3>Amenable</h3>
+				<% _.each( Agreeableness , function(d,i){ %>
+					<div class="bar_chart Marketing">
+						<p class="label"><%= d.name %></p>
+						<p class="stat"><%= d.value %>%</p>
+						<span><i class='<%= d.class %>' style="width:<%= d.value %>%;"></i></span>
+					</div>
+				<% }) %>
+				<br/>
+				<h3>Emotional range</h3>
+				<% _.each( EmotionalRange , function(d,i){ %>
+					<div class="bar_chart Marketing">
+						<p class="label"><%= d.name %></p>
+						<p class="stat"><%= d.value %>%</p>
+						<span><i class='<%= d.class %>' style="width:<%= d.value %>%;"></i></span>
+					</div>
+				<% }) %>
+
+		    	<br/><br/>
+		    	<div class='info-block white'>
+					<p>
+						The ability to profile companies and people based on <strong>Personality Insights</strong>, allows you to drive exceptional and highly relevant customer experiences. If you know that a given company has a diffferent profile from its peers, you can adjust your tone and offering to improve relevance.
+						<br/><br/>
+						<strong>Watson Personality Insights</strong> helps you to discover how and why people and companies think, act, and feel by applying linguistic analytics and personality theory to unstructured text such as social profiles, online posts, or personal writing samples. This means you can focus your marketing on the right prospects, understand their motivations and tailor your value proposition and tactics accordingly.
+					</p>
+					<span class='blue'></span>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<script id="outro-template" type="text/template">
+		<div class='block site-width'>
+			<a id='outro-anchor' class='anchor'></a>
+			<div class='pad'>
+				<h1> What can Watson<br/> do for you? </h1>
+				<br/>
+				<p>
+					By embedding <strong>Watson</strong> into workflows and key decision points, you and your teams are able to easily identify new insights and trends, introduce innovation and make more informed decisions.
+					<br/><br/>
+					We would love to talk to you about <strong>Watson</strong> in the context of your business.
+				</p>
+				<br/><br/>
+				<a class='outro-link blue' target="blank" href="http://www.ibm.com/commerce/tools/real-time-personalization/">
+					Explore real-time personalisation
+				</a>
+				<a class='outro-link blue' target="blank" href="http://www.ibm.com/software/uk/marketing/">
+					Learn more about IBM Marketing solutions
+				</a>
+				<a id='contact-me' class='outro-link pink' data-sender='/contact_me/<%=first_name%>/<%=last_name%>/<%=email_address%>/<%=ibm_id%>' >
+					Contact me
+				</a>
+			</div>
+		</div>
+	</script>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="/js/bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/bower_components/underscore/underscore-min.js"></script>
+	<script type="text/javascript" src="/js/bower_components/backbone/backbone-min.js"></script>
+	<!-- <script type="text/javascript" src="/js/bower_components/slick-carousel/slick/slick.js"></script> -->
+	<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script> <!-- WARN CDN -->
+	<script type="text/javascript" src="/js/d3_helper.js"></script>
+
+	<!-- App + View -->
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/home_view.js"></script>
+
+	<!-- Charts -->
+	<script type="text/javascript" src="/js/chart/plugin/radar_chart.js"></script>
+	<script type="text/javascript" src="/js/chart/comparison_chart.js"></script>
+	<script type="text/javascript" src="/js/chart/donut_chart.js"></script>
+
+	<!-- Components -->
+	<script type="text/javascript" src="/js/component/static1.js"></script>
+	<script type="text/javascript" src="/js/component/footprint.js"></script>
+	<script type="text/javascript" src="/js/component/focus.js"></script>
+	<script type="text/javascript" src="/js/component/personality.js"></script>
+	<script type="text/javascript" src="/js/component/skills_comparison.js"></script>
+	<script type="text/javascript" src="/js/component/outro.js"></script>
+
+	<!-- Start -->
+	<script type="text/javascript">
+		(function(){ new App.View.home(); })();
+	</script>
+
+</body>
+</html>
